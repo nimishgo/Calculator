@@ -1,7 +1,3 @@
-let number1 = "";
-let number2 = "";
-let op = null;
-let resetScreen = false;
 
 const operator = document.querySelectorAll(".operator");
 const number = document.querySelectorAll(".number");
@@ -12,7 +8,13 @@ const decimal = document.querySelector(".decimal");
 const cinput = document.querySelector(".currentOp");
 const coutput = document.querySelector(".pastOp");
 
+let number1 = "";
+let number2 = "";
+let op = null;
+let resetScreen = false;
+
 window.addEventListener('keydown',keyBoardInput);
+
 equal.addEventListener('click', evaluate);
 clearItAll.addEventListener('click',clearIt);
 backspace.addEventListener('click',backSpaceElement);
@@ -45,11 +47,6 @@ function addNumber(num) {
     cinput.textContent += num;
 }
 
-function clearDisplay() {
-    cinput.textContent = '';
-    resetScreen = false;
-}
-
 function clearIt() {
     cinput.textContent = '0';
     coutput.textContent = '';
@@ -57,6 +54,12 @@ function clearIt() {
     number2 = '';
     op = null;
 }
+
+function clearDisplay() {
+    cinput.textContent = '';
+    resetScreen = false;
+}
+
 function addDecimal() {
     if(resetScreen) clearDisplay();
     if (cinput.textContent === '') {
@@ -95,36 +98,37 @@ function evaluate() {
       op = null
     }
     
+function keyBoardInput(e) {
+        if (e.key >= 0 && e.key <= 9) {
+            addNumber(e.key);
+        }
+        if (e.key === '.') {
+            addDecimal();
+        }
+        if (e.key === '=' || e.key === 'Enter') {
+            evaluate();
+        }
+        if (e.key === 'Backspace') {
+            backSpaceElement();
+        }
+        if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '%' || e.key === '/') 
+        {
+            if (e.key === '*')
+                addOperation(convertOperator(e.key));
+            else
+                addOperation(e.key);
+        }
+}
+
 function roundIt(num) {
         return Math.round(num * 1000) / 1000;
 }
 
-function keyBoardInput(e) {
-    if (e.key >= 0 && e.key <= 9) {
-        addNumber(e.key);
-    }
-    if (e.key === '.') {
-        addDecimal();
-    }
-    if (e.key === '=' || e.key === 'Enter') {
-        evaluate();
-    }
-    if (e.key === 'Backspace') {
-        backSpaceElement();
-    }
-    if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '%' || e.key === '/') 
-    {
-        addOperation(convertOperator(e.key));
-    }
-}
 
 
 function convertOperator(keys) {
-    if (keys === '/') return '/';
     if (keys === '*') return 'x';
-    if (keys === '-') return '-';
-    if (keys === '+') return '+';
-  }
+}
 
 function operate(num1,num2,opre) {
     num1 = parseInt(num1);
