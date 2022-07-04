@@ -1,0 +1,78 @@
+
+body {
+    background-color: black;
+    margin:100px 0 auto 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    font-weight: bolder;
+    color: lime;
+    text-shadow: 0px 10px 10px lime;
+}
+.calculatorBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 384px;
+    width: 256px;
+}
+
+
+.calculatorBody .set1 {
+    display: flex;
+    width: 100%;
+}
+
+.set1 button {
+    width: 64px;
+    height: 64px;
+    border: 1px solid lime;
+    font-size: 24px;
+}
+
+.set1 button.equal {
+    width: 128px;
+    height: inherit;
+}
+
+.set2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.set2 .b1 {
+    display: flex;
+}
+
+.set2 .b1 button{
+    width: 64px;
+    height: 64px;
+    border: 1px solid lime;
+    font-size: 24px;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+    width: 246px;
+    padding: 4px;
+    background-color: whitesmoke;
+    text-align: end;
+    font-size: 24px;
+    font-weight: 500;
+    border: 1px solid lime;
+
+}
+
+button:hover {
+    background-color: coral;
+    transition: 0.4s;
+}
