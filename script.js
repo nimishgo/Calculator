@@ -22,6 +22,7 @@ number.forEach(element => {
     element.addEventListener('click',(e) => 
     {
         addNumber(e.target.textContent);
+        // console.log(e.target.textContent);
     });
 }
 );
@@ -30,6 +31,7 @@ operator.forEach(element => {
     element.addEventListener('click',(e) => 
     {
         addOperation(e.target.textContent);
+        // console.log(e.target.textContent);
     });
 }
 );
@@ -71,6 +73,7 @@ function backSpaceElement() {
 }
 
 function addOperation(opr) {
+    // console.log(opr);
     if (op != null) evaluate();
     number1 = cinput.textContent;
     op = opr;
@@ -129,7 +132,7 @@ function operate(num1,num2,opre) {
 
     switch (opre) {
         case '+':
-            console.log(num1 + num2);
+            // console.log(num1 + num2);
             return num1 + num2;
             break;
         case '-':
